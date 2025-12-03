@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <div class="container">
-
     <!-- LEFT SIDE -->
     <div class="left-panel">
         <div class="top-nav">
-            <div class="logo">PUPTDMS</div>
+            <div class="logo">PUPDMS</div>
             <a href="#" class="back-btn">Back to website →</a>
         </div>
 
         <div class="image-section">
-            <img src="https://images.unsplash.com/photo-1508264165352-258a6d1b0e66?auto=format&fit=crop&w=900&q=80" alt="">
             <p class="caption">Capturing Moments,<br>Creating Memories</p>
 
             <div class="carousel-dots">
@@ -29,44 +28,48 @@
         </div>
     </div>
 
-    <!-- RIGHT SIDE (LOGIN FORM) -->
+    <!-- RIGHT SIDE -->
     <div class="right-panel">
         <h1>Log in</h1>
         <p class="login-text">Don't have an account? <a href="#">Create one</a></p>
 
+        <!-- LOGIN FORM -->
         <form id="loginForm">
 
-            <!-- USERNAME FIELD -->
             <input type="text" placeholder="Username" id="username" required>
 
             <div class="password-wrapper">
-                <input type="password" placeholder="Enter your password" id="password" required>
-                <span class="toggle-password" onclick="togglePassword()">👁️</span>
-            </div>
+                <input type="password" placeholder="Enter your password" id="password" required />
+               <span class="toggle-password" onclick="togglePassword()">
+                <svg id="eye-icon" width="22" height="22" viewBox="0 0 24 24" 
+                    fill="none" stroke="#ffffff" stroke-width="2" 
+                    stroke-linecap="round" stroke-linejoin="round">
 
-            <label class="checkbox">
-                <input type="checkbox" id="remember">
-                <span>Remember me</span>
-            </label>
+                    <!-- OPEN EYE -->
+                    <path id="eye-open" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+                    <circle id="pupil" cx="12" cy="12" r="3"/>
 
-            <!-- ERROR MESSAGE HERE -->
-            <p id="error-message" style="color: red; font-size: 14px; height: 18px; margin-top: 5px;"></p>
+                    <!-- CLOSED EYE -->
+                    <path id="eye-closed" style="display:none;" 
+                        d="M17.94 17.94A10.06 10.06 0 0112 20c-5.52 0-10-5-10-8 
+                            0-1.01.21-1.98.6-2.85M6.06 6.06A10.06 10.06 0 0112 4
+                            c5.52 0 10 5 10 8 0 .75-.16 1.47-.45 2.15"/>
 
-            <button type="submit" class="create-btn">Log in</button>
+                    <line id="slash" style="display:none;" x1="1" y1="1" x2="23" y2="23"/>
+                </svg>
+            </span>
 
-            <div class="divider">
-                <span></span> Or continue with <span></span>
-            </div>
+            <p id="error-message" style="color: red; font-size: 14px; display: none;"></p>
 
-            <div class="social-buttons">
-                <button type="button" class="google-btn">Google</button>
-                <button type="button" class="apple-btn"> Apple</button>
-            </div>
+            <button type="submit" class="create-btn">Login</button>
+
         </form>
-    </div>
 
+    </div>
 </div>
 
+<!-- Load external JS (your real validation) -->
 <script src="script.js"></script>
+
 </body>
 </html>

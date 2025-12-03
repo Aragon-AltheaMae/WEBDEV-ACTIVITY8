@@ -177,6 +177,28 @@ input {
     color: white;
     font-weight: bold;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.12s ease;
+}
+
+.create-btn:active {
+    transform: scale(0.96);
+}
+
+.create-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.18);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.create-btn.clicked::after {
+    opacity: 1;
+    animation: fadeOverlay 0.45s ease-out forwards;
 }
 
 .divider {
@@ -208,3 +230,5 @@ input {
     color: white;
     cursor: pointer;
 }
+
+
