@@ -1,62 +1,46 @@
+/* base */
 body {
     margin: 0;
-    background: #4B4756;
+    background: #800000;
     font-family: "Inter", sans-serif;
 }
 
+/* container */
 .container {
     width: 80%;
-    height: 600px;
-    margin: 60px auto;
+    height: 550px;
+    margin: 50px auto;
     display: flex;
     background: #1E1B25;
     border-radius: 18px;
     overflow: hidden;
 }
 
+/* LEFT */
 .left-panel {
-    width: 60%;
+    width: 55%;
     position: relative;
     overflow: hidden;
-    padding: 40px;   /* adjust to make the image smaller */
     box-sizing: border-box;
-    /* Makes the image behave like a background */
-    background-image: url("images/PUP TAGUIG CAMPUS.jpg");
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    /* Optional: adds a dark overlay like the reference UI */
+    background: transparent;
 }
 
-.left-panel::after {
-    content: "";
-    position: absolute;
-    
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.35); /* dark overlay */
-    border-radius: inherit;
-}
-
+/* top nav */
 .top-nav {
     position: absolute;
     top: 20px;
     left: 20px;
     right: 20px;
-
     display: flex;
     justify-content: space-between;
-    z-index: 2;
+    z-index: 3;
 }
 
 .logo {
-    color: white;
+    color: rgb(216, 204, 204);
     font-weight: 700;
-    font-size: 28px;
+    font-size: 18px;
+    margin-top: -10px
 }
 
 .back-btn {
@@ -69,59 +53,45 @@ body {
 }
 
 .image-section {
-    width: 100%;
-    height: 100%;
-    display: contents;
-    position: relative;
-    justify-content: center;    /* centers horizontally */
-    align-items: center;        /* centers vertically */
-    overflow: hidden;
-    border-radius: 18px 0 0 18px;  /* rounded left corners */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
 .image-section img {
-    width: 90%;
-    height: 90%;
-    object-fit: cover;          /* makes image fill the left panel */
-    object-position: center;    /* centers image focus */
-    
+    width: calc(100% - 80px);   /* gap left & right */
+    height: calc(100% - 80px);
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    display: block;
 }
 
-.caption {
+.left-panel::after {
+    content: "";
     position: absolute;
-    bottom: 80px;
-    left: 40px;
-    font-size: 24px;
-    color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
     z-index: 2;
 }
 
-.carousel-dots {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    display: flex;
-    gap: 8px;
-    z-index: 2;
-}
-
-.carousel-dots span {
-    width: 30px;
-    height: 3px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 3px;
-}
-
-.carousel-dots .active {
-    background: white;
-}
-
+/* RIGHT */
 .right-panel {
-    width: 30%;
-    padding: 100px;
+    width: 45%;               
+    padding: 60px;
     background: #f5f5f5;
     color: #1E1B25;
     border-radius: 18px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h1 {
@@ -138,7 +108,9 @@ form {
     margin-top: 30px;
 }
 
-input {
+/* inputs */
+input[type="text"],
+input[type="password"] {
     width: 100%;
     padding: 14px;
     border: none;
@@ -146,8 +118,10 @@ input {
     background: #2D2936;
     color: white;
     margin-top: 12px;
+    box-sizing: border-box;
 }
 
+/* password wrapper: allow icon centered vertically */
 .password-wrapper {
     position: relative;
 }
@@ -155,37 +129,56 @@ input {
 .toggle-password {
     position: absolute;
     right: 12px;
-    top: 18px;
+    top: 62%;
+    transform: translateY(-50%);
     cursor: pointer;
-}
-
-.checkbox {
-    margin-top: 15px;
+    background: transparent;
+    border: none;
+    padding: 6px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
 }
 
+.toggle-password svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+/* create button: centered, thicker, toggling visual, and nudged slightly to right */
 .create-btn {
     font-family: "Inter", sans-serif;
-    width: 100%;
-    margin-top: 25px;
-    padding: 14px;
+    display: block;
+    width: 60%;               /* centered not full width */
+    margin: 25px auto 0;      /* center horizontally */
+    padding: 18px 22px;       /* thicker height */
     background: #7F62F7;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     color: white;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: transform 0.12s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    font-size: 16px;
+    box-shadow: 0 6px 18px rgba(127,98,247,0.25);
+    left: 8px;              
 }
 
+/* pressed/toggled look */
 .create-btn:active {
-    transform: scale(0.96);
+    transform: translateY(1px) scale(0.99);
 }
 
+/* toggled visual state (when JS toggles the class) */
+.create-btn.toggled {
+    background: linear-gradient(90deg, #6f4ef0, #9b7cff);
+    box-shadow: 0 10px 28px rgba(99,66,255,0.28);
+}
+
+/* overlay effect used earlier */
 .create-btn::after {
     content: "";
     position: absolute;
@@ -201,6 +194,12 @@ input {
     animation: fadeOverlay 0.45s ease-out forwards;
 }
 
+@keyframes fadeOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* other controls */
 .divider {
     margin: 25px 0;
     text-align: center;
@@ -214,21 +213,3 @@ input {
     display: inline-block;
     margin: 0 10px;
 }
-
-.social-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.google-btn,
-.apple-btn {
-    width: 50%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #555;
-    background: transparent;
-    color: white;
-    cursor: pointer;
-}
-
-
