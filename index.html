@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Account</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
+
     <!-- LEFT SIDE -->
     <div class="left-panel">
         <div class="top-nav">
-            <div class="logo">AMU</div>
+            <div class="logo">PUPTDMS</div>
             <a href="#" class="back-btn">Back to website →</a>
         </div>
 
         <div class="image-section">
-            <img src="https://images.unsplash.com/photo-1508264165352-258a6d1b0e66?auto=format&fit=crop&w=900&q=80" alt="Desert">
+            <img src="https://images.unsplash.com/photo-1508264165352-258a6d1b0e66?auto=format&fit=crop&w=900&q=80" alt="">
             <p class="caption">Capturing Moments,<br>Creating Memories</p>
 
             <div class="carousel-dots">
@@ -28,42 +29,42 @@
         </div>
     </div>
 
-    <!-- RIGHT SIDE -->
+    <!-- RIGHT SIDE (LOGIN FORM) -->
     <div class="right-panel">
-        <h1>Create an account</h1>
-        <p class="login-text">Already have an account? <a href="#">Log in</a></p>
+        <h1>Log in</h1>
+        <p class="login-text">Don't have an account? <a href="#">Create one</a></p>
 
-        <form id="signupForm">
-            <div class="name-wrapper">
-                <input type="text" placeholder="First name" id="firstName" required />
-                <input type="text" placeholder="Last name" id="lastName" required />
-            </div>
+        <form id="loginForm">
 
-            <input type="email" placeholder="Email" id="email" required />
-            
+            <!-- USERNAME FIELD -->
+            <input type="text" placeholder="Username" id="username" required>
+
             <div class="password-wrapper">
-                <input type="password" placeholder="Enter your password" id="password" required />
+                <input type="password" placeholder="Enter your password" id="password" required>
                 <span class="toggle-password" onclick="togglePassword()">👁️</span>
             </div>
 
             <label class="checkbox">
-                <input type="checkbox" id="terms" required />
-                <span>I agree to the <a href="#">Terms & Conditions</a></span>
+                <input type="checkbox" id="remember">
+                <span>Remember me</span>
             </label>
 
-            <button type="submit" class="create-btn">Create account</button>
+            <!-- ERROR MESSAGE HERE -->
+            <p id="error-message" style="color: red; font-size: 14px; height: 18px; margin-top: 5px;"></p>
+
+            <button type="submit" class="create-btn">Log in</button>
 
             <div class="divider">
-                <span></span> Or register with <span></span>
+                <span></span> Or continue with <span></span>
             </div>
 
             <div class="social-buttons">
-                <button class="google-btn">Google</button>
-                <button class="apple-btn"> Apple</button>
+                <button type="button" class="google-btn">Google</button>
+                <button type="button" class="apple-btn"> Apple</button>
             </div>
-
         </form>
     </div>
+
 </div>
 
 <script src="script.js"></script>
