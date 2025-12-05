@@ -4,13 +4,14 @@ body {
     background: #e5dbdb;
     font-family: "Inter", sans-serif;
 }
+
 /* TOP BAR */
 .top-bar {
     display: flex;
     align-items: center;
     gap: 20px;
     padding: 15px 25px;
-    background: #7A0000;  /* deep maroon */
+    background: #7A0000;
     color: white;
     box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
 }
@@ -23,16 +24,13 @@ body {
     margin-right: 20px;
 }
 
-.back-btn:hover {
-    opacity: 0.8;
-}
+.back-btn:hover { opacity: 0.8; }
 
 .top-bar h1 {
     margin: 0;
     font-size: 28px;
     font-weight: 700;
 }
-
 
 /* MAIN WRAPPER */
 .profile-container {
@@ -72,7 +70,7 @@ body {
 .right-panel {
     width: 65%;
     background: white;
-    padding: 35px 35px;
+    padding: 35px;
     border-radius: 0 10px 10px 0;
     display: flex;
     flex-direction: column;
@@ -80,30 +78,74 @@ body {
 }
 
 .personal-info-box {
-    padding: 40px;       /* bigger inside space */
-    min-height: 250px;   /* adjust height as you like */
+    padding: 40px;
+    min-height: 250px;
 }
 
-.personal-grid {
+/* ---------- GRID LAYOUT (NO OVERLAP) ---------- */
+.personal-grid,
+.info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr auto; /* last column adjusts to content */
-    row-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    row-gap: 18px;
     column-gap: 20px;
 }
 
-
-.personal-grid p {
+/* Text fix for ALL rows */
+.personal-grid p,
+.info-grid p {
     margin: 0;
     font-size: 18px;
     font-weight: 600;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+/* Make all labels red */
+.personal-grid p .label,
+.info-grid p .label,
+.row-wrap .label {
+    color: #7A0000; /* your red color */
+    font-weight: 700; /* keep them bold */
+    white-space: nowrap; /* label never wraps */
 }
 
-.personal-grid .full-width {
-    grid-column: 1 / 4; /* spans all 3 columns */
-}
-
-.personal-grid .no-wrap {
+#email {
     white-space: nowrap;
+    overflow: visible; /* allows full display */
+}
+
+
+/* full-width items */
+.personal-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+/* =============== LABEL + VALUE SYSTEM =============== */
+
+/* Wrapper: label stays one line, value wraps normally */
+.row-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    flex-wrap: nowrap; /* keeps label in one line */
+}
+
+/* Label never wraps */
+.row-wrap .label {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Value wraps freely and never overflows */
+.row-wrap .value {
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    flex: 1; /* allows wrapping */
 }
 
 /* SECTION BOXES */
@@ -120,32 +162,11 @@ body {
     font-weight: 700;
 }
 
-/* 3-COLUMN LABEL STYLE */
-.info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 18px;
-    column-gap: 20px;
-}
-
-.info-grid p {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: #111;
-}
-
-/* labels */
-.label {
-    font-weight: 700;
-    margin-right: 5px;
-}
-
 /* SKILLS STYLE */
 .skills-container {
     list-style: none;
     padding: 0;
-    margin: 10px 0 0 0;
+    margin: 10px 0 0;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
