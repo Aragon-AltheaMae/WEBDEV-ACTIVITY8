@@ -50,6 +50,14 @@
         </a>
 
     </div>
+            <script>
+        document.querySelectorAll(".student").forEach(img => {
+            img.addEventListener("click", () => {
+                const id = img.getAttribute("data-id");
+                window.location.href = `student-profile.html?id=${id}`;
+            });
+        });
+        </script>
 
 </main>
 
