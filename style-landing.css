@@ -7,15 +7,32 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #2f2b3a; /* Dark modern background */
+    font-family: "Inter", sans-serif;
+    background: #ffffff; 
     color: #ffffff;
+}
+
+/* landing-only background */
+body.landing {
+  /* path to your image - change to your image path (e.g. /mnt/data/64c5c...png or images/hero.jpg) */
+  background-image: url('images/landing.png');
+  background-size: cover;            /* cover the viewport */
+  background-position: center right; /* adjust to keep subject on right */
+  background-repeat: no-repeat;
+  background-attachment: fixed;     /* or 'fixed' if you want parallax effect */
+  color: #222;                       /* ensure text color contrasts with bg if needed */
+}
+
+/* make sure header/content sit above the overlay */
+header, main, .welcome-container, .hero, .student-list {
+  position: relative;
+  z-index: 2;
 }
 
 /* HEADER */
 header {
     width: 100%;
-    background: #3b3647; /* Dark card shade */
+    background: #5c0206; /* Dark card shade */
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
@@ -34,7 +51,7 @@ header {
 }
 
 nav a {
-    color: #b8b6c4;
+    color: #c74c4c;
     margin-left: 25px;
     text-decoration: none;
     font-size: 18px;
@@ -45,25 +62,101 @@ nav a {
 
 nav a.active,
 nav a:hover {
-    background: rgba(139, 92, 246, 0.25); /* Purple hover glow */
+    background: rgba(168, 56, 56, 0.25); /* Purple hover glow */
     color: #fff;
 }
 
 /* WELCOME PAGE */
+/* Make sure page fills viewport */
+html, body { height: 100%; }
+
+/* HERO layout: two columns */
+.hero {
+  margin-top: 70px;                 /* keep same spacing under fixed header */
+  min-height: calc(100vh - 150px);  /* full-screen area under header */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 40px;                  /* space left/right so nothing touches edges */
+  box-sizing: border-box;
+}
+
+/* LEFT - text block (animated) */
 .welcome-container {
-    margin-top: 150px;
-    text-align: center;
+  flex: 1 1 60%;            /* take left side — adjust percent if you want narrower/wider */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 40px;       /* distance from left edge */
+  max-width: 900px;
+  color: #5c0206;           /* your text color */
+  opacity: 0;               /* start invisible, animation will reveal */
+  animation: fadeSlide 1.1s ease-out forwards;
+}
+
+/* only animate the text — not the image or parent */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 .welcome-container h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
-    color: white;
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: rgb(254, 234, 132);
+}
+.welcome-container p {
+  color: #ffffff;
+  margin-top: 12px;
+}
+
+/* RIGHT - image card that does NOT animate */
+.hero-image {
+  flex: 0 0 36%;            /* fixed-ish width for the image column */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+  pointer-events: auto;
+  z-index: 5;
+  animation: fadeSlide 1.1s ease-out forwards;
+}
+
+/* style the image */
+.hero-image img{
+  width: 100%;
+  max-width: 520px;         /* keeps it from growing too large on wide screens */
+  height: auto;
+  display: block;
+  box-shadow: 0 18px 30px rgba(0,0,0,0.25), 0 6px 12px rgba(0,0,0,0.12);
+  transform: translateY(-20px); /* give slight overlap effect like your screenshot */
+  border: 6px solid rgb(251, 223, 99);
+  background: #ffffff;
+}
+
+/* RESPONSIVE: stack on small screens, keep text above image */
+@media (max-width: 980px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+  .welcome-container { padding-left: 20px; text-align: left; height: auto; }
+  .hero-image { width: 100%; flex: 0 0 auto; padding-right: 0; }
+  .hero-image img { max-width: 360px; transform: translateY(0); }
+}
+
+.landing-img {
+    width: 350px;        /* adjust size */
+    margin-top: 20px;    /* spacing */
+    border-radius: 10px; /* optional */
 }
 
 /* STUDENT LIST PAGE */
 .student-list {
-    margin-top: 140px;
+    margin-top: 70px;
     padding: 20px 50px;
     text-align: center;
     color: #ffffff;
@@ -72,7 +165,21 @@ nav a:hover {
 .student-list h1 {
     font-size: 34px;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: #390000;
+}
+
+body.student-page {
+    background-image: url('images/students.png'); /* path to your image */
+    background-size: cover;            /* cover the viewport */
+    background-position: center;       /* adjust as needed */
+    background-repeat: no-repeat;
+    background-attachment: fixed;      /* optional: parallax effect */
+}
+
+/* make sure header/content sit above the overlay */
+header, main, .welcome-container, .hero, .student-list {
+  position: relative;
+  z-index: 2;
 }
 
 /* STUDENT GRID */
@@ -87,14 +194,27 @@ nav a:hover {
 
 /* STUDENT CARD */
 .student-card {
-    width: 170px;
-    background: #3b3647; /* Card purple-dark */
+    width: 300px;
+    height: 380px;
+    background: #791e1e;
     padding: 15px;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
     border: 1px solid rgba(255,255,255,0.05);
+
+    /* animation */
+    opacity: 0;                     /* start invisible */
+    animation: riseUp 0.6s forwards; /* run animation once */
+
+    /* smooth hover animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* animation: rise from below */
+@keyframes riseUp {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .student-card:hover {
@@ -104,8 +224,8 @@ nav a:hover {
 
 /* STUDENT IMAGE */
 .student-card img {
-    width: 120px;
-    height: 120px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 12px;
@@ -115,59 +235,22 @@ nav a:hover {
 
 /* NAME BELOW IMAGE */
 .student-card .name {
-    font-size: 16px;
+    font-size: 21px;
     font-weight: bold;
     color: #ffffff;
     margin-top: 5px;
 }
 
-/* SIDEBAR */
-.sidebar {
-    width: 260px;
-    background: #3b3647;
-    height: 100vh;
-    padding: 100px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    color: white;
-    border-right: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+/* ROLE BELOW IMAGE */
+.student-card .role {
+    font-size: 15px;
+    color: #ffffff;
+    margin-top: 5px;
 }
 
-.sidebar a {
-    display: block;
-    padding: 12px 0;
-    font-size: 18px;
-    color: #b8b6c4;
-    text-decoration: none;
-    transition: 0.25s;
-}
-
-.sidebar a:hover {
-    color: #fff;
-    background: rgba(139, 92, 246, 0.25);
-    padding-left: 15px;
-}
-
-.back-link {
-    margin-top: 20px;
-    font-size: 16px !important;
-    color: #a78bfa !important;
-}
-
-/* STUDENT PROFILE CONTENT */
-.profile-content {
-    margin-left: 300px;
-    padding: 120px 40px;
-    color: white;
-}
-
-.profile-content section {
-    background: #3b3647;
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.05);
-}
+.student-grid .student-card:nth-child(1) { animation-delay: 0.1s; }
+.student-grid .student-card:nth-child(2) { animation-delay: 0.2s; }
+.student-grid .student-card:nth-child(3) { animation-delay: 0.3s; }
+.student-grid .student-card:nth-child(4) { animation-delay: 0.4s; }
+.student-grid .student-card:nth-child(5) { animation-delay: 0.5s; }
+.student-grid .student-card:nth-child(6) { animation-delay: 0.6s; }
