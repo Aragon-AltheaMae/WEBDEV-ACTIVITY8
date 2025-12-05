@@ -116,6 +116,7 @@ body {
 #email {
     white-space: nowrap;
     overflow: visible; /* allows full display */
+    font-size: 14px;   /* smaller font size */
 }
 
 
