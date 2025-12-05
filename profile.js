@@ -17,7 +17,7 @@ const studentsData = {
         number: "09817263723",  
         studentId: "2023-00088-TG-0",
         program: "Bachelor of Science in Information Technology",
-        year: "3rd Year",
+        year: "3",
         section: "1",
         skills: ["Programming", "Web Development", "Graphic Design"]
     },
@@ -38,7 +38,7 @@ const studentsData = {
         number: "09484415071",  
         studentId: "2023-00112-TG-0",
         program: "Bachelor of Science in Information Technology",
-        year: "3rd Year",
+        year: "3",
         section: "1",
         skills: ["Networking", "Data Analysis", "Python"]
     },
@@ -59,7 +59,7 @@ const studentsData = {
         number: "09195803102",  
         studentId: "2023-00113-TG-0",
         program: "Bachelor of Science in Information Technology",
-        year: "3rd Year",
+        year: "3",
         section: "1",
         skills: ["CAD Design", "Mathematics", "Problem Solving"]
     },
@@ -80,7 +80,7 @@ const studentsData = {
         number: "09493315025",  
         studentId: "2023-00128-TG-0",
        program: "Bachelor of Science in Information Technology",
-        year: "3rd Year",
+        year: "3",
         section: "1",
         skills: ["Leadership", "Public Speaking", "Marketing"]
     }

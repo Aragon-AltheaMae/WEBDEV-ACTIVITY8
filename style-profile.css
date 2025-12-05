@@ -106,9 +106,6 @@ body {
     white-space: nowrap;
 }
 
-
-
-
 /* SECTION BOXES */
 .info-box {
     padding: 25px;
@@ -123,7 +120,7 @@ body {
     font-weight: 700;
 }
 
-/* 3-COLUMN LABEL STYLE LIKE THE DESIGN */
+/* 3-COLUMN LABEL STYLE */
 .info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -144,7 +141,7 @@ body {
     margin-right: 5px;
 }
 
-/* SKILLS PILL STYLE */
+/* SKILLS STYLE */
 .skills-container {
     list-style: none;
     padding: 0;
