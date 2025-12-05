@@ -2,33 +2,33 @@ const params = new URLSearchParams(window.location.search);
 const student = params.get("student");
 
 const studentData = {
-    john: {
+    aragon: {
         name: "Althea Mae C. Aragon",
-        personal: "John's personal information goes here.",
-        skills: "John's skills go here.",
-        education: "John's education goes here.",
-        achievements: "John's awards go here."
+        personal: "Althea's personal information goes here.",
+        skills: "Althea's skills go here.",
+        education: "Althea's education goes here.",
+        achievements: "Althea's awards go here."
     },
-    jane: {
+    lim: {
         name: "Grace Anne F. Lim",
-        personal: "Jane's personal information goes here.",
-        skills: "Jane's skills go here.",
-        education: "Jane's education goes here.",
-        achievements: "Jane's awards go here."
+        personal: "Grace's personal information goes here.",
+        skills: "Grace's skills go here.",
+        education: "Grace's education goes here.",
+        achievements: "Grace's awards go here."
     },
-    alice: {
+    lopez: {
         name: "Hoshea Shania C. Lopez",
-        personal: "Alice's personal info goes here.",
-        skills: "Alice's skills go here.",
-        education: "Alice's education goes here.",
-        achievements: "Alice's achievements go here."
+        personal: "Hoshea's personal info goes here.",
+        skills: "Hoshea's skills go here.",
+        education: "Hoshea's education goes here.",
+        achievements: "Hoshea's achievements go here."
     },
-    marco: {
+    romero: {
         name: "Dianna Rain M. Romero",
-        personal: "Marco's personal info goes here.",
-        skills: "Marco's skills go here.",
-        education: "Marco's education goes here.",
-        achievements: "Marco's achievements go here."
+        personal: "Dianna's personal info goes here.",
+        skills: "Dianna's skills go here.",
+        education: "Dianna's education goes here.",
+        achievements: "Dianna's achievements go here."
     }
 };
 
