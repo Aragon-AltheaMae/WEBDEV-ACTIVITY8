@@ -1,49 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Profile</title>
-<link rel="stylesheet" href="style-landing.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+
+    <link rel="stylesheet" href="style-profile.css">
 </head>
 
 <body>
 
-<!-- SIDEBAR ONLY -->
-<aside class="sidebar">
-    <h3>Student Info</h3>
-    <a href="#personal">Personal Information</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#achievements">Achievements</a>
-    <br>
-    <a href="students.html" class="back-link">← Back to students list</a>
-</aside>
+<header class="top-bar">
+    <a href="students.html" class="back-btn">←</a>
+    <h1>STUDENT INFORMATION</h1>
+</header>
 
-<main class="profile-content">  
+<main class="profile-container">
 
-    <section id="personal">
-        <h2>Personal Information</h2>
-        <p>This will contain the personal info of the selected student.</p>
+    <!-- ========== LEFT PANEL (MAROON) ========== -->
+    <section class="left-panel">
+        <div class="profile-img">
+            <img id="studentImage" src="" alt="Student Photo">
+        </div>
+
+        <h1 class="student-name" id="fullName">Student Name</h1>
+        <p class="student-id" id="studentNumber">0000-00000-TG-0</p>
     </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <p>Student skills go here.</p>
-    </section>
+    <!-- ========== RIGHT PANEL (WHITE) ========== -->
+    <section class="right-panel">
 
-    <section id="education">
-        <h2>Education</h2>
-        <p>Education background goes here.</p>
-    </section>
+        <!-- PERSONAL INFORMATION -->
+       <div class="info-box personal-info-box">
+    <h2>Personal Information</h2>
 
-    <section id="achievements">
-        <h2>Achievements</h2>
-        <p>Awards and achievements go here.</p>
+    <div class="info-grid personal-grid">
+
+        <!-- ROW 1 -->
+        <p><span class="label">Surname:</span> <span id="surname"></span></p>
+        <p><span class="label">Given Name:</span> <span id="givenName"></span></p>
+        <p class="no-wrap"><span class="label">Middle Name:</span> <span id="middleName"></span></p>
+
+
+        <!-- ROW 2 -->
+        <p><span class="label">Age:</span> <span id="age"></span></p>
+        <p><span class="label">Birthday:</span> <span id="birthday"></span></p>
+        <p><span class="label">Sex:</span> <span id="sex"></span></p>
+
+        <!-- ROW 3 -->
+        <p><span class="label">Contact No:</span> <span id="contact"></span></p>
+        <p class="no-wrap"><span class="label">PUP Email:</span> <span id="email"></span></p>
+        <p></p>
+
+        <!-- ROW 4 -->
+        <p class="full-width"><span class="label">Address:</span> <span id="address"></span></p>
+
+        <!-- ROW 5 -->
+        <p class="no-wrap"><span class="label">Emergency Contact:</span> <span id="emergencyContact"></span></p>
+        <p><span class="label">Contact No:</span> <span id="number"></span></p>
+        <p></p>
+    </div>
+</div>
+
+
+
+        <!-- STUDENT INFORMATION -->
+        <div class="info-box">
+            <h2>Student Information</h2>
+
+            <div class="info-grid">
+               <p><span class="label">Student ID:</span> <span id="studentId"></span></p>
+                <p class="no-wrap"><span class="label">Program:</span> <span id="program"></span></p>
+                <p><span class="label">Year:</span> <span id="year"></span></p>
+                <p><span class="label">Section:</span> <span id="section"></span></p>
+
+            </div>
+        </div>
+
+                <!-- SKILLS SECTION -->
+        <div class="info-box">
+            <h2>Skills</h2>
+            <ul id="skillsList" class="skills-container"></ul>
+        </div>
+
+
     </section>
 
 </main>
 
-<script src="script-landing.js"></script>
+<script src="profile.js"></script>
+
 </body>
 </html>
